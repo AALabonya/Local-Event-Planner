@@ -1,9 +1,10 @@
-import { Row, Col, Typography, Button, Tag, Avatar, Divider } from 'antd';
+import { Row, Col, Typography, Button, Tag, Divider, Card } from 'antd';
 import {
   CalendarOutlined,
   TeamOutlined,
  
 } from '@ant-design/icons';
+const { Meta } = Card;
 
 const { Title, Paragraph } = Typography;
 
@@ -22,13 +23,13 @@ const EventDetails = () => {
           height: 500,
         }}
       >
-        <div className="h-[500px] bg-black bg-opacity-70 relative">
-          <div className="absolute top-60 left-8 md:left-36 ">
-            <Title level={1} className="text-white font-bold">Event Details</Title>
-            <div className="text-xl mt-2 flex items-center gap-2 text-white">
-              <a href="/events" className="underline">Events</a>
-              <CalendarOutlined className="text-pink-600" />
-              <span className="text-red-500">Event Details</span>
+        <div >
+          <div>
+            <Title level={1}>Event Details</Title>
+            <div >
+              <a href="/events" >Events</a>
+              <CalendarOutlined  />
+              <span>Event Details</span>
             </div>
           </div>
         </div>
@@ -42,24 +43,24 @@ const EventDetails = () => {
             src="https://img.freepik.com/free-photo/portrait-autistic-kid-fantasy-world_23-2151354127.jpg?t=st=1712777645~exp=1712781245~hmac=911078df814e92e211752f711b5b4e878bf53c6cc760623c64d6ce78eb81682a&w=900"
             alt="event.title"
           />
-          <Row  className="max-w-[780px] ml-2 mt-6">
-            {/* Date */}
+          <Row  >
+          Date 
             <Col>
-              <p className="flex items-center gap-2">
-                <CalendarOutlined className="text-xl text-primary" />
+              <p >
+                <CalendarOutlined/>
                 formattedDate
               </p>
             </Col>
-            {/* Seat */}
+        Seat 
             <Col>
-              <p className="flex items-center gap-2 text-red-600 font-semibold text-xl">
-                <TeamOutlined className="text-xl" />
+              <p >
+                <TeamOutlined />
                 event.seat Seat
               </p>
             </Col>
-            {/* Location */}
+             Location 
             <Col>
-              <p className="flex items-center gap-1 text-sm">
+              <p >
                
                 event.location
               </p>
@@ -67,36 +68,44 @@ const EventDetails = () => {
           </Row>
           {/* Event Type, Speaker, Sponsor */}
           <Divider />
-          <Row justify="space-between" className="max-w-[840px]">
+          <Row justify="space-between">
              Event Type, Speaker, Sponsor 
-            Please add your event type, speaker, and sponsor details here
           </Row>
           {/* Price & Ticket Button */}
           <Divider />
-          <Row justify="space-between" className="max-w-[840px]">
+          <Row justify="space-between" >
              Price & Ticket Button 
-           Please add your price and ticket button here 
           </Row>
           {/* Event Description */}
           <Divider />
           <Title level={2}>event.title</Title>
-          <Paragraph className="mt-5 text-gray-600 leading-loose max-w-[850px]">
+          <Paragraph >
             event.description
           </Paragraph>
           {/* Overview */}
           <Divider />
           Overview 
-          Please add your overview content here 
+          
          Main Speakers 
           <Divider />
           <Title level={2} className="my-8">Main Speakers</Title>
-          {/* Main Speakers */}
-          {/* Please add your main speakers here */}
+        Main Speakers 
+          Please add your main speakers here 
         </Col>
         {/* Sidebar */}
-        <Col xs={24} lg={8}>
+        <Col xs={12} lg={4}>
          Sidebar 
-      Please add your sidebar content here 
+         <Card
+                    cover={<img alt="event.title" src="{event.image}" style={{ height: 200, objectFit: 'cover'}}/>}
+                >
+                    <Meta title="event.title" description="event.description" />
+                    <p>Date: </p>
+                    <p>Time: </p>
+                    <p>Location: </p>
+                    <Button type="primary" block href={`/eventDetails`}>
+                        View Details
+                    </Button>
+                </Card>
         </Col>
       </Row>
     </div>

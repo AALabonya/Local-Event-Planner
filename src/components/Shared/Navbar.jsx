@@ -67,8 +67,8 @@ const Navbar = () => {
               )}
             </Menu>
             <div style={{ textAlign: 'center', padding: '10px', borderTop: '1px solid #f0f0f0' }}>
-              <Button type="text" icon={<UserOutlined />}>Sign In</Button>
-              <Button type="text" style={{ marginLeft: '10px' }}>Sign Up</Button>
+              <Button type="text" icon={<UserOutlined />}><Link to="/login">Sign In</Link></Button>
+              <Button type="text" style={{ marginLeft: '10px' }}><Link to="/signUp">Sign Up</Link></Button>
             </div>
           </Drawer>
           <span style={{ color: 'black', fontSize: '20px', marginLeft: '10px' }}>Event Planner</span>
@@ -91,8 +91,8 @@ const Navbar = () => {
         </Menu>
 
         <div>
-          <Button type="text" icon={<UserOutlined />} style={{ color: 'black' }}>Sign In</Button>
-          <Button type="text" style={{ marginLeft: '10px' }}>Sign Up</Button>
+        <Button type="text" icon={<UserOutlined />}><Link to="/login">Sign In</Link></Button>
+              <Button type="text" style={{ marginLeft: '10px' }}><Link to="/signUp">Sign Up</Link></Button>
         </div>
       </div>
     </>
