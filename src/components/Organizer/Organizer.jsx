@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, Button, Row, Col } from 'antd';
 const Organizer = () => {
   return (
-    <div style={{ background: '#f0f2f5', padding: '50px 0' }}>
+    <div style={{ padding: '50px 0' }}>
       <Row justify="center">
         <Col xs={24} md={20} lg={16}>
           <Card style={{ width: '100%' }}>

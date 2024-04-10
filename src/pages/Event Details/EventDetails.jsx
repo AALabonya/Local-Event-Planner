@@ -2,9 +2,7 @@ import { Row, Col, Typography, Button, Tag, Avatar, Divider } from 'antd';
 import {
   CalendarOutlined,
   TeamOutlined,
-  DollarCircleOutlined,
-  NotebookOutlined,
-  UserAddOutlined,
+ 
 } from '@ant-design/icons';
 
 const { Title, Paragraph } = Typography;
@@ -36,13 +34,12 @@ const EventDetails = () => {
         </div>
       </div>
 
-      <Row className="mt-24 max-w-screen-xl mx-auto px-4" gutter={[16, 16]}>
+      <Row  gutter={[16, 16]}>
         <Col xs={24} lg={16}>
           {/* Main Content */}
           {/* Image */}
-          <img
-            className="w-full h-96 object-cover rounded-md"
-            src="{event.image}"
+          <img style={{marginTop:"10px"}}
+            src="https://img.freepik.com/free-photo/portrait-autistic-kid-fantasy-world_23-2151354127.jpg?t=st=1712777645~exp=1712781245~hmac=911078df814e92e211752f711b5b4e878bf53c6cc760623c64d6ce78eb81682a&w=900"
             alt="event.title"
           />
           <Row  className="max-w-[780px] ml-2 mt-6">
@@ -63,7 +60,7 @@ const EventDetails = () => {
             {/* Location */}
             <Col>
               <p className="flex items-center gap-1 text-sm">
-                <VscLocation className="text-2xl text-primary" />
+               
                 event.location
               </p>
             </Col>
@@ -71,14 +68,14 @@ const EventDetails = () => {
           {/* Event Type, Speaker, Sponsor */}
           <Divider />
           <Row justify="space-between" className="max-w-[840px]">
-            {/* Event Type, Speaker, Sponsor */}
-            {/* Please add your event type, speaker, and sponsor details here */}
+             Event Type, Speaker, Sponsor 
+            Please add your event type, speaker, and sponsor details here
           </Row>
           {/* Price & Ticket Button */}
           <Divider />
           <Row justify="space-between" className="max-w-[840px]">
-            {/* Price & Ticket Button */}
-            {/* Please add your price and ticket button here */}
+             Price & Ticket Button 
+           Please add your price and ticket button here 
           </Row>
           {/* Event Description */}
           <Divider />
@@ -88,9 +85,9 @@ const EventDetails = () => {
           </Paragraph>
           {/* Overview */}
           <Divider />
-          {/* Overview */}
-          {/* Please add your overview content here */}
-          {/* Main Speakers */}
+          Overview 
+          Please add your overview content here 
+         Main Speakers 
           <Divider />
           <Title level={2} className="my-8">Main Speakers</Title>
           {/* Main Speakers */}
@@ -98,8 +95,8 @@ const EventDetails = () => {
         </Col>
         {/* Sidebar */}
         <Col xs={24} lg={8}>
-          {/* Sidebar */}
-          {/* Please add your sidebar content here */}
+         Sidebar 
+      Please add your sidebar content here 
         </Col>
       </Row>
     </div>

@@ -36,7 +36,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px', height: '64px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 5px', height: '64px', borderBottom: '1px solid #e8e8e8', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           {(isSmallScreen || isMediumScreen) && ( // Show the button on small and medium-sized screens
             <Button type="primary" onClick={toggleDrawer}>
@@ -48,8 +48,8 @@ const Navbar = () => {
             placement="left"
             width={250}
             onClose={onClose}
-            visible={isDrawerVisible}
-            bodyStyle={{ padding: 0 }}
+            open={isDrawerVisible}
+            
           >
             <Menu onClick={handleClick} selectedKeys={[current]} mode="inline">
               {(isSmallScreen || isMediumScreen) && ( // Only show on small and medium devices
