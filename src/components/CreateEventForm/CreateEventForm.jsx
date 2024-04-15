@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Form, Input, DatePicker, Button, Upload } from 'antd';
+import { Form, Input, DatePicker, Button, Upload, message } from 'antd';
 import moment from 'moment'; // Import moment library
 import { useDispatch } from 'react-redux';
 import { addEvent } from '../../redux/features/event/eventSlice';
@@ -8,13 +8,27 @@ const CreateEventForm = () => {
 
   const [fileList, setFileList] = useState([]);
   const dispatch = useDispatch();
-  const onFinish = (values) => {
-    
-    const existingData = JSON.parse(localStorage.getItem('data')) || [];
 
+  // Retrieve date and time from localStorage
+  const savedDate = localStorage.getItem('eventDate');
+  const savedTime = localStorage.getItem('eventTime');
+
+  // Set default date and time based on localStorage or current date and time
+  const defaultDate = savedDate ? moment(savedDate, 'YYYY-MM-DD') : moment();
+  const defaultTime = savedTime ? moment(savedTime, 'HH:mm') : moment();
+
+  const onFinish = (values) => {
+    const existingData = JSON.parse(localStorage.getItem('data')) || [];
     existingData.push(values);
     localStorage.setItem('data', JSON.stringify(existingData));
     dispatch(addEvent(existingData));
+
+    // Save date and time to localStorage
+    localStorage.setItem('eventDate', values.eventDate.format('YYYY-MM-DD'));
+    localStorage.setItem('eventTime', values.eventTime.format('HH:mm'));
+
+    // Show success message
+    message.success('Event posted successfully!');
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -29,9 +43,6 @@ const CreateEventForm = () => {
     return e?.fileList;
   };
 
-  // Set specific date and time using moment
-  const defaultDate = moment('2024-04-14'); 
-  const defaultTime = moment('12:00', 'HH:mm');
 
   return (
     <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", textAlign: "center", marginTop: "6rem" }}>
@@ -104,7 +115,7 @@ const CreateEventForm = () => {
         </Form>
       </div>
 
-      {/* Image */}
+      
       <div style={{ width: "100%", maxWidth: "400px" }}>
         <img src="https://i.ibb.co/kgrBssT/maxresdefault.jpg" alt="" style={{ width: "100%" }} />
       </div>

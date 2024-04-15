@@ -1,16 +1,17 @@
 
-import { Layout, Card, Typography, Button, Avatar, Divider, } from 'antd';
+import { Layout, Card, Typography, Avatar, Divider, } from 'antd';
 import { Link, useParams } from 'react-router-dom';
-import { CalendarOutlined, MenuFoldOutlined, TeamOutlined, ThunderboltOutlined, SoundOutlined, CheckCircleOutlined, UserOutlined } from '@ant-design/icons';
+import { CalendarOutlined, CheckCircleOutlined, UserOutlined,FieldTimeOutlined } from '@ant-design/icons';
 import { Row, Col, } from 'antd';
 const { Content } = Layout;
 const { Meta } = Card;
-const { Title, Text, Paragraph } = Typography;
+const { Title, Paragraph } = Typography;
 import { Flex, Rate } from 'antd';
 import { useState } from 'react';
-
+import { useSelector } from 'react-redux';
+import moment from 'moment';
 const datas = {
- 
+
   image: "https://i.ibb.co/VxZZKMK/banner-top.jpg",
 }
 
@@ -30,30 +31,21 @@ const recentEvents = [
   { title: "Product Design Exhibition", image: "https://i.ibb.co/9qNw5xs/leadership.jpg", date: "2024-05-05", seat: 120 },
 ];
 
-const organizer = {
-  name: "Abdullah Mamun",
-  role: "CEO",
-  image: "https://i.ibb.co/c2PW68Q/pexels-italo-melo-2379004.jpg",
-};
-
 const EventDetails = () => {
-  
-  const {id} = useParams()
-
-  console.log("id",id);
-
-  const data = localStorage.getItem('data');
-
-    const user = (JSON.parse(data));
-
-    console.log("data",user);
-
-    const task = user.find((item, index) => index.toString() === id);
-  console.log("task",task);
-  const params = 1
   const [value, setValue] = useState(3);
+  const { id } = useParams()
+  const params = 1
 
-  
+  const event = useSelector((state) => state.eventSlice.events);
+  console.log(event);
+  const task = event.find((item, index) => index.toString() === id);
+
+  console.log("Event:", task);
+
+  if (!task) {
+   
+    return <div>Event not found</div>;
+  }
 
   return (
     <div>
@@ -66,11 +58,11 @@ const EventDetails = () => {
           backgroundPosition: "center",
           height: 500,
         }}>
-          <div style={{ height: 500, background: 'rgba(0, 0, 0, 0.7)', borderRadius: '6px' }}>
+          <div style={{ height: 500, background: 'rgba(0, 0, 0, 0.10)', borderRadius: '6px' }}>
             <div style={{ position: 'absolute', top: 60, left: 8 }}>
-              <Title level={2} style={{ color: 'white',fontSize:"50px", fontWeight: 'bold',marginTop:"8rem", marginLeft:"5rem"}}>Event Details</Title>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'white',textAlign:"center", marginLeft:"40px"}}>
-                <Link to={'/events'} style={{ textDecoration: 'underline', color: 'white' ,marginLeft:"3rem"}}>Events</Link>
+              <Title level={2} style={{ color: 'white', fontSize: "50px", fontWeight: 'bold', marginTop: "8rem", marginLeft: "5rem" }}>Event Details</Title>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'white', textAlign: "center", marginLeft: "40px" }}>
+                <Link to={'/'} style={{ textDecoration: 'underline', color: 'white', marginLeft: "3rem", font:"bold" }}>Events /</Link>
 
                 <span style={{ color: 'red' }}>Event Details</span>
               </div>
@@ -87,91 +79,26 @@ const EventDetails = () => {
                 alt="datasImage"
               />
               <div style={{ display: 'flex', justifyContent: 'space-between', maxWidth: 830, margin: '24px 0' }}>
-                <p style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <CalendarOutlined style={{ fontSize: 24, color: '#1890ff' }} />
-                  {task.eventDateTime} 
+                <p>
+                  <CalendarOutlined style={{ fontSize: 24, color: "#CE1446",marginRight:"14px" }} />
+                  {moment(task.eventDate).format('MMMM Do YYYY')}
                 </p>
-                <p style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <TeamOutlined style={{ fontSize: 24, color: '#1890ff' }} />
+                <p>
+                <FieldTimeOutlined style={{ fontSize: 24, color: "#CE1446", marginRight:"14px" }} />
+                  {moment(task.eventTime).format('h:mm A')}
+                </p>
+                <p>
+                  <UserOutlined style={{ fontSize: 24, color: "#CE1446",marginRight:"14px" }} />
                   {task.location}
                 </p>
               </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', gap: 16, border: '1px solid #f0f0f0', padding: 16, margin: '24px 0' }}>
-                <div style={{ display: 'flex', gap:"40px" , justifyContent:"space-between"}}>
-                  <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-                  <MenuFoldOutlined style={{color:"red"}}/>
-                    <div>
-                      <p style={{ fontWeight: 'bold' }}>Event Type</p>
-                      <p>Web Development</p>
-                    </div>
-                  </div>
-                  <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-                  <SoundOutlined style={{color:"red"}}/>
-                    <div>
-                      <p style={{ fontWeight: 'bold' }}>Speaker</p>
-                      <p>10 Best Speaker</p>
-                    </div>
-                  </div>
-                  <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-                    <ThunderboltOutlined style={{color:"red"}}/>
-                    <div>
-                      <p style={{ fontWeight: 'bold' }}>Sponsor</p>
-                      <p>Event Lab</p>
-                    </div>
-                  </div>
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                  {/* <Rate allowHalf defaultValue={5} disabled /> */}
-                  <Flex gap="middle" vertical>
-                    <Rate  onChange={setValue} value={value} />
-                  
-                  </Flex>
-                  <p>(260)</p>
-                </div>
-              </div>
-
-             
 
               <div style={{ maxWidth: 850 }}>
+
                 <Title level={2}>{task.title}</Title>
                 <Paragraph>{task.description}</Paragraph>
-              </div>
 
-              <div style={{ display: 'grid', gap: 24, marginTop: 32, gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
-                <div>
-                  <Title level={3}>Overview</Title>
-                  <ul style={{ listStyleType: 'none', padding: 0 }}>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                      <CheckCircleOutlined style={{ color: 'green', fontSize: 24 }} />
-                      You Got Full Free Certificate.
-                    </li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                      <CheckCircleOutlined style={{ color: 'green', fontSize: 24 }} />
-                      Unlimited Coffe & Tea When U Boring.
-                    </li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                      <CheckCircleOutlined style={{ color: 'green', fontSize: 24 }} />
-                      Comfortable Seating Areas.
-                    </li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                      <CheckCircleOutlined style={{ color: 'green', fontSize: 24 }} />
-                      Wi-Fi Access.
-                    </li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                      <CheckCircleOutlined style={{ color: 'green', fontSize: 24 }} />
-                      Lunch Suspendisse In Commodo Feli.
-                    </li>
-                  </ul>
-                </div>
-                <div style={{ display: 'flex', gap: 16 }}>
-                  <img style={{ width: '48%', borderRadius: '8px 0 0 8px' }} src="https://i.ibb.co/mGZ71df/pexels-rdne-stock-project-7648306.jpg" alt="" />
-                  <img style={{ width: '48%', borderRadius: '0 8px 8px 0' }} src="https://i.ibb.co/9qNw5xs/leadership.jpg" alt="" />
-                </div>
               </div>
-
-              <Paragraph style={{ marginTop: 32 }}>
-                {task.description}
-              </Paragraph>
 
               <Title level={3} style={{ marginTop: 32 }}>Main Speakers</Title>
               <Row gutter={[16, 16]}>
@@ -188,7 +115,7 @@ const EventDetails = () => {
                               <Link to={`/speaker/${data.speakerId}`}></Link>
                               <Flex gap="middle" vertical>
                                 <Rate onChange={setValue} value={value} />
-                                
+
                               </Flex>
                             </div>
                           </div>
@@ -201,7 +128,7 @@ const EventDetails = () => {
             </Col>
             <Col xs={24} lg={6}>
               <div style={{ background: '#fafafa', padding: 24, borderRadius: 8 }}>
-                <Title level={3} style={{ marginBottom: 24 }}>Recent Event</Title>
+                <Title level={3} style={{ marginBottom: 24, backgroundColor:"#CE1446" , color:"white" , textAlign:"center" , padding:"5px", borderRadius:"5px"}}>Recent Event</Title>
                 {recentEvents?.slice(0, 4).map((item, index) => (
                   <div key={index} style={{ display: 'flex', gap: 16, alignItems: 'center', marginBottom: 16 }}>
                     <img style={{ width: 120, height: 80, objectFit: 'cover', borderRadius: 6 }} src={item.image} alt={item.title} />
@@ -211,28 +138,14 @@ const EventDetails = () => {
                         <CalendarOutlined /> {item.date.slice(0, 10)}
                       </p>
                       <p>
-                        {/* <BsDiagram3 /> {event.seat} Seat */}Seat
+                        Seat
                       </p>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div style={{ marginTop: 16 }}>
-                <Divider />
-                <Title level={3}>Event Organized By</Title>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-                  <img style={{ width: 80, height: 80, borderRadius: '50%' }} src="https://i.ibb.co/c2PW68Q/pexels-italo-melo-2379004.jpg" alt="" />
-                  <div>
-                    <Title level={4}>Abdullah Mamun</Title>
-                    <Paragraph style={{ fontWeight: 'bold' }}>CEO</Paragraph>
-                  </div>
-                </div>
-              </div>
-
-              <div style={{ marginTop: 16 }}>
-                <img style={{ width: '100%' }} src="https://i.ibb.co/gzYpGCB/sb-banner.png" alt="" />
-              </div>
+             
             </Col>
           </Row>
         </div>

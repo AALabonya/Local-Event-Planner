@@ -1,5 +1,5 @@
 import { HomeOutlined } from '@ant-design/icons';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Typography, Row, Col } from 'antd';
 import Map from './Map';
 
@@ -7,26 +7,25 @@ const { Title, Paragraph } = Typography;
 const Contact = () => {
   return (
     <div>
-    <div style={{backgroundImage: `url(https://i.ibb.co/9qNw5xs/leadership.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
-      <div style={{maxWidth: '100vw', height:"300px",  margin: '0 auto', padding: '24px'}} className="justify-center">
-        <div
-          style={{textAlign: 'center'}}
-          title={<h2 style={{fontSize: '2.5rem', fontWeight: 'bold',color: '#CE1446', fontFamily: 'serif'}}>Contact</h2>}>
-        
-            <div style={{marginTop: '6rem'}}>
-              <NavLink to="/" style={{fontFamily: 'sans-serif', fontSize: '3rem', fontWeight: 'bold', color: '#fff', marginRight: '1rem'}}>
-                <HomeOutlined style={{marginRight: '0.5rem'}} /> Contact /
-              </NavLink>
-              <NavLink to="/" style={{fontFamily: 'sans-serif', fontSize: '3rem', fontWeight: 'bold', color: '#fff'}}>
-                Contact Details
-              </NavLink>
+      <div style={{
+        backgroundImage: "url('https://i.ibb.co/tsLGjv6/people-2608316-960-720.jpg')",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        borderRadius: "6px",
+        backgroundPosition: "center",
+        height: 400,
+      }}>
+        <div style={{ background: 'rgba(0, 0, 0, 0.10)', borderRadius: '6px' }}>
+          <div style={{ position: 'absolute', top: 60, left: 8 }}>
+            <Title level={2} style={{ color: 'white', fontSize: "50px", fontWeight: 'bold', marginTop: "8rem", marginLeft: "5rem" }}>Contact Details</Title>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'white', textAlign: "center", marginLeft: "40px" }}>
+              <Link to={'/'} style={{ color: 'white', marginLeft: "3rem", font: "bold", fontSize: "30px" }}>Contact</Link>
             </div>
-       
-       </div>
+          </div>
+        </div>
       </div>
+      <Map />
     </div>
-    <Map/>
-  </div>
   )
 }
 

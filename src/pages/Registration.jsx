@@ -5,26 +5,19 @@ import { createUser } from "../redux/features/user/userSlice";
 
 const Registration = () => {
 
-  const navigate = useNavigate(); // Import useNavigate hook to redirect after signup
   const navigation = useNavigation();
-  const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+const navigate = useNavigate()
 
   const dispatch = useDispatch()
   if (navigation.state === "loading") {
     return <progress className="progress w-56"></progress>;
   }
-
-  const onFinish = async (name, email, password) => {
-    console.log(name, email, password);
-    await dispatch(
-      createUser({
-        name,
-        email,
-        password
-      })
+  const onFinish = (values) => {
+    console.log(values);
+    dispatch(
+      createUser(values) 
     );
-    // Further actions after form submission
+    navigate("/login")
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -33,7 +26,7 @@ const Registration = () => {
 
 
 
-  
+
 
   return (
     <div style={{ display: "flex", justifyContent: "center", textAlign: "center", flexWrap: "wrap", marginTop: "6rem" }}>
@@ -58,7 +51,7 @@ const Registration = () => {
           >
             <Input placeholder="Enter your Name" />
           </Form.Item>
-         
+
           <Form.Item
             label="Email"
             name="email"

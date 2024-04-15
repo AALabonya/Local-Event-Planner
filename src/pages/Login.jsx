@@ -13,6 +13,7 @@ const Login = () => {
 
   const onFinish = async ({ email, password }) => {
     console.log(email, password);
+    navigate("/")
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -70,7 +71,7 @@ const Login = () => {
             </Form.Item>
             <Form.Item wrapperCol={{ offset: 0, span: 24 }}>
               <Button type="primary" htmlType="submit" style={{ width: "100%", fontSize: "0.875rem", fontWeight: "500", color: "white", backgroundColor: "#CE1446", borderRadius: "0.5rem", border: "none", cursor: "pointer" }}>
-                SignUp
+                SignIn
               </Button>
             </Form.Item>
           </Form>

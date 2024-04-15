@@ -1,4 +1,4 @@
-import {  createAsyncThunk, createSlice,} from '@reduxjs/toolkit';
+import {  createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import {  createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import auth from '../../../utils/firebase.config';
 
@@ -15,9 +15,6 @@ export const createUser =createAsyncThunk (
 'userSlice/createUser', 
 async({email, password, name})=>{
   const data = await createUserWithEmailAndPassword(auth, email, password)
-  await updateProfile(auth.currentUser,{
-    displayName: name,
-  })
   console.log(data)
 
   return{

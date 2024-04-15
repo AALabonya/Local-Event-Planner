@@ -1,15 +1,15 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
-    events: [], 
-    userSpecificTasks: [],
-  };
+  events: [],
+  userSpecificTasks: [],
+};
 
 const eventsSlice = createSlice({
-  name: 'eventsSlice',
+  name: "eventsSlice",
   initialState,
   reducers: {
-    addEvent: (state, { payload }) => {
-      state.events.push({ ...payload });
+    addEvent: (state, action) => {
+      state.events = action.payload;
     },
   },
 });

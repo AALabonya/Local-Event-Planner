@@ -30,31 +30,31 @@ const Banner = () => {
           <div style={contentStyle}>
             <img alt="example" src="https://cdn.pixabay.com/photo/2024/04/05/05/17/concert-8676557_1280.jpg" style={imgStyle} />
             <div style={textStyle}>
-              <h1 style={{fontSize:"40px"}}>This is a Local Event Planner Website</h1>
+              <h1 style={{fontSize:"40px"}}>Plan Your Perfect Event with Us</h1>
             </div>
           </div>
         </div>
         <div>
           <div style={contentStyle}>
-            <img alt="example" src="https://cdn.pixabay.com/photo/2024/04/05/05/17/concert-8676557_1280.jpg" style={imgStyle} />
+            <img alt="example" src="https://img.freepik.com/premium-photo/diversity-equity-inclusion-compagny-work-space-illustration-concept-background_916191-76412.jpg?w=1060" style={imgStyle} />
             <div style={textStyle}>
-              <h1 style={{fontSize:"40px"}}>This is a Local Event Planner Website</h1>
+              <h1 style={{fontSize:"40px"}}>Make Every Moment Memorable</h1>
             </div>
           </div>
         </div>
         <div>
           <div style={contentStyle}>
-            <img alt="example" src="https://cdn.pixabay.com/photo/2024/04/05/05/17/concert-8676557_1280.jpg" style={imgStyle} />
+            <img alt="example" src="https://i.ibb.co/vzfKs0j/meeting.jpg" style={imgStyle} />
             <div style={textStyle}>
-              <h1 style={{fontSize:"40px"}}>This is a Local Event Planner Website</h1>
+              <h1 style={{fontSize:"40px"}}>Elevate Your Event Experience</h1>
             </div>
           </div>
         </div>
         <div>
           <div style={contentStyle}>
-            <img alt="example" src="https://cdn.pixabay.com/photo/2024/04/05/05/17/concert-8676557_1280.jpg" style={imgStyle} />
+            <img alt="example" src="https://i.ibb.co/tsLGjv6/people-2608316-960-720.jpg" style={imgStyle} />
             <div style={textStyle}>
-              <h1 style={{fontSize:"40px"}}>This is a Local Event Planner Website</h1>
+              <h1 style={{fontSize:"40px"}}>Create Memories with Local Events</h1>
             </div>
           </div>
         </div>
