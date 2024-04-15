@@ -1,5 +1,8 @@
 # Local Event Planner
 
+ - [Live Site Link (Netlify)]( https://local-event-planner.netlify.app/)
+- [Client Site Repo](https://github.com/AALabonya/Local-Event-Planner)
+
 # Application features and brief overview:
 
 - The "Local Event Planner" application, built on React.js, Ant Design, Redux, and React Router, aims to provide a user-friendly platform for discovering, planning, and managing local events (e.g., meetups, workshops, community gatherings) within a city, showcasing the app's ability to work with React ecosystem tools and libraries.

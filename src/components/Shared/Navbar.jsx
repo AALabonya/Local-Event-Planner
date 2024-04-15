@@ -75,7 +75,7 @@ const Navbar = () => {
           </Drawer>
           <Link to="/" style={{display:"flex" , justifyContent:"center", alignItems:"center", cursor:"pointer" }}>
             <img src="https://i.ibb.co/BLdtTBV/culture-logo.jpg" alt="" style={{width:"40px"}} />
-            <span style={{ color: 'black', fontSize: '20px', marginLeft: '10px',color: '#CE1446' }}>Event Planner</span>
+            <span style={{ fontSize: '20px', marginLeft: '10px',color: '#CE1446' }}>Event Planner</span>
             
             </Link>
         </div>
