@@ -7,8 +7,8 @@ import { Drawer } from 'antd';
 const Navbar = () => {
   const [current, setCurrent] = useState('home');
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 576); // Check if the screen is small initially
-  const [isMediumScreen, setIsMediumScreen] = useState(window.innerWidth >= 576 && window.innerWidth < 992); // Check if the screen is medium initially
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 576); 
+  const [isMediumScreen, setIsMediumScreen] = useState(window.innerWidth >= 576 && window.innerWidth < 992); 
 
   useEffect(() => {
     const handleResize = () => {
@@ -17,9 +17,9 @@ const Navbar = () => {
       setIsMediumScreen(screenWidth >= 576 && screenWidth < 992);
     };
 
-    handleResize(); // Check initial size
-    window.addEventListener('resize', handleResize); // Add listener for window resize
-    return () => window.removeEventListener('resize', handleResize); // Cleanup on unmount
+    handleResize(); 
+    window.addEventListener('resize', handleResize); 
+    return () => window.removeEventListener('resize', handleResize); 
   }, []);
 
   const handleClick = (e) => {
@@ -36,9 +36,10 @@ const Navbar = () => {
 
   return (
     <>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 5px', height: '64px', borderBottom: '1px solid #e8e8e8', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 5px', height: '64px', borderBottom: '1px solid #CE1446', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          {(isSmallScreen || isMediumScreen) && ( // Show the button on small and medium-sized screens
+          {(isSmallScreen || isMediumScreen) && ( 
+            // Show the button on small and medium-sized screens
             <Button type="primary" onClick={toggleDrawer}>
               <MenuUnfoldOutlined />
             </Button>
@@ -52,7 +53,8 @@ const Navbar = () => {
             
           >
             <Menu onClick={handleClick} selectedKeys={[current]} mode="inline">
-              {(isSmallScreen || isMediumScreen) && ( // Only show on small and medium devices
+              {(isSmallScreen || isMediumScreen) && (
+                 // Only show on small and medium devices
                 <>
                   <Menu.Item key="home" icon={<HomeOutlined />}>
                     <Link to="/">Home</Link>
@@ -66,7 +68,7 @@ const Navbar = () => {
                 </>
               )}
             </Menu>
-            <div style={{ textAlign: 'center', padding: '10px', borderTop: '1px solid #f0f0f0' }}>
+            <div style={{ textAlign: 'center', padding: '10px', borderTop: '1px solid #CE1446' }}>
               <Button type="text" icon={<UserOutlined />}><Link to="/login">Sign In</Link></Button>
               <Button type="text" style={{ marginLeft: '10px' }}><Link to="/signUp">Sign Up</Link></Button>
             </div>
@@ -75,7 +77,8 @@ const Navbar = () => {
         </div>
 
         <Menu selectedKeys={[current]} mode="horizontal">
-          {!isSmallScreen && !isMediumScreen && ( // Show only on large devices
+          {!isSmallScreen && !isMediumScreen && ( 
+            // Show only on large devices
             <>
               <Menu.Item key="home" icon={<HomeOutlined />}>
                 <Link to="/">Home</Link>
@@ -91,8 +94,8 @@ const Navbar = () => {
         </Menu>
 
         <div>
-        <Button type="text" icon={<UserOutlined />}><Link to="/login">Sign In</Link></Button>
-              <Button type="text" style={{ marginLeft: '10px' }}><Link to="/signUp">Sign Up</Link></Button>
+        <Button type="text" style={{color:"#CE1446", border:"1px solid #CE1446"}} color='#CE1446' icon={<UserOutlined />}><Link to="/login">Sign In</Link></Button>
+              <Button type="text" style={{ marginLeft: '10px', color:"#CE1446",border:"1px solid #CE1446" }}><Link to="/signUp">Sign Up</Link></Button>
         </div>
       </div>
     </>

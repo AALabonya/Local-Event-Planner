@@ -6,6 +6,7 @@ import Registration from "../pages/Registration"
 import Login from "../pages/Login"
 import About from "../pages/About"
 import Contact from "../pages/Contact"
+import CreateEventForm from "../components/CreateEventForm/CreateEventForm"
 
 
 const Router = createBrowserRouter([
@@ -29,6 +30,10 @@ const Router = createBrowserRouter([
             {
                 path:"/contact",
                 element:<Contact/>
+            },
+            {
+                path:"/eventForm",
+                element:<CreateEventForm/>
             }
         ]
     },

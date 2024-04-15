@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, Button, Row, Col } from 'antd';
+import { Link } from 'react-router-dom';
 const Organizer = () => {
   return (
     <div style={{ padding: '50px 0' }}>
@@ -20,14 +21,13 @@ const Organizer = () => {
                     Host Your Event with Us
                   </h2>
                   <p style={{ marginBottom: '24px' }}>
-                    Dream Craft Events: Where your vision meets perfection. From corporate
-                    conferences to intimate gatherings, we specialize in flawless event management.
-                    With our expertise, let us handle the stress while you enjoy every moment.
-                    Contact us today and let's create magic together.
+                  Where your local dreams find perfection. Whether it's a cozy community gathering or a neighborhood celebration, we specialize in seamless event coordination. Entrust us with the details, so you can savor every moment stress-free. Reach out today, and let's craft unforgettable memories together.
+
                   </p>
-                  <Button type="primary" size="large" style={{ textTransform: 'uppercase' }}>
-                    Request Organizer
-                  </Button>
+                  <Link to="/eventForm">
+                  <Button type="primary" size="large" style={{ textTransform: 'uppercase', backgroundColor:"#CE1446" }}>
+                   Create Event
+                  </Button></Link>
                 </div>
               </Col>
             </Row>

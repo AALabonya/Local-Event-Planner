@@ -21,6 +21,11 @@ To run this project locally, follow these steps:
    ```
    npm install
    ```
+4. User Authentication :
+I am using firebase.
+
+
+5. I stored event data in the localStorage and fatch them to eventListing . Data will be showen in eventlisting each time I create event. 
 
 ## Contact
 

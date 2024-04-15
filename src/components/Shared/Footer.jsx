@@ -19,9 +19,9 @@ const Footers = () => {
         <Col style={{marginTop:"20px"}}>
           {/* Bottom: Social Media Links */}
           <Space size="large">
-            <a href="#" target="_blank" rel="noopener noreferrer"><FacebookOutlined /></a>
-            <a href="#" target="_blank" rel="noopener noreferrer"><InstagramOutlined /></a>
-            <a href="#" target="_blank" rel="noopener noreferrer"><TwitterOutlined /></a>
+            <a href="#" target="_blank" rel="noopener noreferrer" ><FacebookOutlined  style={{color:"#CE1446"}}/></a>
+            <a href="#" target="_blank" rel="noopener noreferrer"><InstagramOutlined style={{color:"#CE1446"}} /></a>
+            <a href="#" target="_blank" rel="noopener noreferrer"><TwitterOutlined style={{color:"#CE1446"}}/></a>
           </Space>
         </Col>
       </Row>
@@ -29,18 +29,18 @@ const Footers = () => {
         <Col xs={24} sm={24} md={8} style={{marginTop:"20px"}}>
           {/* Left side: Menu items */}
           <Space direction="vertical" size="small">
-            <Space><HomeOutlined /> <Text>Home</Text></Space>
-            <Space><ContactsOutlined /> <Text>About</Text></Space>
-            <Space><ContactsOutlined /> <Text>Contact</Text></Space>
+            <Space><HomeOutlined style={{color:"#CE1446"}}/> <Text>Home</Text></Space>
+            <Space><ContactsOutlined style={{color:"#CE1446"}} /> <Text>About</Text></Space>
+            <Space><ContactsOutlined style={{color:"#CE1446"}}/> <Text>Contact</Text></Space>
           </Space>
         </Col>
         
         <Col xs={24} sm={24} md={8} style={{marginTop:"20px"}}>
           {/* Right side: Contact Information */}
           <Space direction="vertical" size="small">
-            <Space><PhoneOutlined /> <Text>+1234567890</Text></Space>
-            <Space><MailOutlined /> <Text>info@example.com</Text></Space>
-            <Space><InfoCircleOutlined /> <Text>123 Main Street, City, Country</Text></Space>
+            <Space><PhoneOutlined style={{color:"#CE1446"}}/> <Text>+1234567890</Text></Space>
+            <Space><MailOutlined style={{color:"#CE1446"}}/> <Text>info@example.com</Text></Space>
+            <Space><InfoCircleOutlined style={{color:"#CE1446"}} /> <Text>123 Main Street, City, Country</Text></Space>
           </Space>
         </Col>
       </Row>
